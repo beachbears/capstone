@@ -3,8 +3,12 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, } from
 import Octicons from '@expo/vector-icons/Octicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import DropDownPicker from 'react-native-dropdown-picker';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function TabTwoScreen() {
+
+ 
+
   const [location, setLocation] = useState('');
   const [destination, setDestination] = useState('');
 
@@ -17,6 +21,16 @@ export default function TabTwoScreen() {
     { label: 'Destination', value: 'Destination' },
     { label: 'Popularity', value: 'Popularity' },
   ]);
+
+  
+  const ProfileDropdown = () => {}
+    // State for controlling dropdown visibility
+    const [showDropdown, setShowDropdown] = useState(false);
+  
+    // Toggle function for dropdown
+    const toggleDropdown = () => {
+      setShowDropdown((prevState) => !prevState);
+    };
   
 
   return (
@@ -137,6 +151,41 @@ export default function TabTwoScreen() {
   
 </View>
 
+
+<View style={styles.containers}>
+      {/* Profile Icon */}
+      <TouchableOpacity
+        onPress={toggleDropdown}
+        style={styles.profileIconContainer}
+      >
+        <View style={styles.profileCircle}>
+          <Text style={styles.profileInitial}>G</Text>
+        </View>
+      </TouchableOpacity>
+
+      {/* Dropdown */}
+      {showDropdown && (
+        <View style={styles.dropdown}>
+          <Text style={styles.dropdownTitle}>
+            You are currently browsing as a{" "}
+            <Text style={styles.boldText}>Guest</Text>
+          </Text>
+          <TouchableOpacity
+            style={styles.dropdownButton}
+            onPress={() => console.log("Login clicked")}
+          >
+            <Text style={styles.dropdownButtonText}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.dropdownButton, styles.signupButton]}
+            onPress={() => console.log("Sign Up clicked")}
+          >
+            <Text style={styles.signupButtonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+    </View>
+    
    
 <View  style={styles.card}>
         <View style={styles.top}> 
@@ -162,12 +211,26 @@ export default function TabTwoScreen() {
   </Text>
 
   <View style={styles.iconStatus}>
+
   <Octicons name="shield-check" size={18} color="blue"/>
   <Text style={styles.status}>Status</Text> 
   <View style={styles.badge}>
   <Entypo name="check" size={14} color="#03C04A" />
       <Text style={styles.cert}>Certified AppName</Text>
     </View>
+
+    <View style={styles.arrowup}>
+    <AntDesign name="arrowup" size={15} color="#03C04A" />
+    <Text style={[styles.num, { color: '#22c55e' }]}>11</Text>
+    </View>
+    
+    <View style={styles.arrowdown}>
+    <AntDesign name="arrowdown" size={15} color="red" />
+    <Text style={[styles.num, { color: 'red' }]}>4</Text>
+
+    </View>
+    
+
         </View>
     </View>
      
@@ -192,6 +255,15 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
+    
+    
+    
+    
+    
+    
+    
+    
     backgroundColor: '#f9f9f9',
   },
   width: {
@@ -280,10 +352,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#4B5563',
   },
-  top: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
+ 
   username: {
     fontSize: 12,
     color: '#6B7280',
@@ -358,5 +427,94 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#6B7280',
     marginLeft: 380,
+  },
+  top: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  arrowup: {
+    borderWidth: 1,
+    borderColor: '#4ade80',
+    borderRadius: 5,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 260,
+
+  },
+
+  arrowdown: {
+    borderWidth: 1,
+    borderColor: '#f47357',
+    borderRadius: 5,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 10,
+  }, 
+  num: {
+    marginLeft: 6,
+    fontSize: 12,
+    fontWeight: 600,
+  },
+
+  containers: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f0f0f0",
+  },
+  profileIconContainer: {
+    marginBottom: 10,
+  },
+  profileCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: "#007AFF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  profileInitial: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  dropdown: {
+    backgroundColor: "#fff",
+    padding: 15,
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  dropdownTitle: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  boldText: {
+    fontWeight: "bold",
+  },
+  dropdownButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#e6e6e6",
+    borderRadius: 5,
+    marginBottom: 10,
+    alignItems: "center",
+  },
+  dropdownButtonText: {
+    color: "#333",
+  },
+  signupButton: {
+    backgroundColor: "#007AFF",
+  },
+  signupButtonText: {
+    color: "#fff",
   },
 });
