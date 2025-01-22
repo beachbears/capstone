@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: '#4a4a4a',
-    marginTop: 60,  
+    marginTop: 5,  
   },
   centerText: {
     textAlign: 'center',
@@ -235,8 +235,7 @@ const styles = StyleSheet.create({
     marginTop: 0, 
   },
   feedbackBox: {
-    backgroundColor: '#f5f5f5',
-    padding: 2,
+    backgroundColor: '#f9f9f89',
     marginHorizontal: 16,
     marginTop: 1,
     borderRadius: 8,
@@ -265,7 +264,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 4,
     elevation: 2,
-    width: '60%',   
+    width: '80%',   
   },
   avatar: {
     width: 48,
@@ -328,8 +327,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 16,
-    width: 56,
-    height: 56,
+    width: 40,
+    height: 40,
     borderRadius: 28,
     backgroundColor: '#6366f1',
     alignItems: 'center',

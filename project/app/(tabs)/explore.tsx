@@ -250,14 +250,12 @@ export default function TabTwoScreen() {
           </View>
         </View>
 
-
-
-
-
-
-
-
       </View>
+
+      <TouchableOpacity style={styles.floatingButton}>
+        <Text style={styles.floatingButtonText}>+</Text>
+      </TouchableOpacity>
+      
     </ScrollView>
   );
 }
@@ -465,7 +463,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     marginVertical: 2,
-
+    
   },
 
   profile: {
@@ -520,6 +518,7 @@ const styles = StyleSheet.create({
   id: {
     flexDirection: 'row',
     alignItems: 'center',
+    height: 50,
   },
   arrowup: {
     borderWidth: 1,
@@ -545,5 +544,27 @@ const styles = StyleSheet.create({
     marginLeft: 6,
     fontSize: 12,
     fontWeight: '600',
+  },
+
+  floatingButton: {
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 28,
+    backgroundColor: '#6366f1',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  floatingButtonText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 });
