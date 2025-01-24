@@ -11,53 +11,53 @@ export default function TabTwoScreen() {
 
   const [selectedOption, setSelectedOption] = useState('Select an option');
 
-  const toggleDropdown = () => { setShowDropdown(!showDropdown);};
+  const toggleDropdown = () => { setShowDropdown(!showDropdown); };
   const [showDropdown, setShowDropdown] = useState(false);
   const router = useRouter();
 
   return (
     <ScrollView style={styles.container}>
 
-<View style={styles.header}>
-  <Image
-    source={require('../../assets/images/logo.png')}  
-    style={styles.logo}
-  />
-  <View>
-              <TouchableOpacity onPress={toggleDropdown} style={styles.profileIconContainer}>
-                <View style={styles.profileCircle}>
-                  <View style={styles.secondcircle}>
-                  <Text style={styles.profileInitial}>G</Text>
-                  </View>
-                  
-                </View>
-              </TouchableOpacity>
-              {showDropdown && (
-                <View style={styles.dropdown}>
-                  <Text style={styles.dropdownTitle}>
-                    You are currently browsing as a <Text style={styles.boldText}>Guest</Text>
-                  </Text>
-                  <TouchableOpacity style={styles.dropdownButton} onPress={() => console.log("Login clicked")}>
-                    <Text style={styles.dropdownButtonText}>Login</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={[styles.dropdownButton, styles.signupButton]}
-                    onPress={() => router.push('/explore')} // Navigate to the explore page
-                  >
-                    <Text style={styles.signupButtonText}>Sign Up</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
+      <View style={styles.header}>
+        <Image
+          source={require('../../assets/images/logo.png')}
+          style={styles.logo}
+        />
+        <View>
+          <TouchableOpacity onPress={toggleDropdown} style={styles.profileIconContainer}>
+            <View style={styles.profileCircle}>
+              <View style={styles.secondcircle}>
+                <Text style={styles.profileInitial}>G</Text>
+              </View>
+
             </View>
-</View>
-      <View style={styles.width}>  
+          </TouchableOpacity>
+          {showDropdown && (
+            <View style={styles.dropdown}>
+              <Text style={styles.dropdownTitle}>
+                You are currently browsing as a <Text style={styles.boldText}>Guest</Text>
+              </Text>
+              <TouchableOpacity style={styles.dropdownButton} onPress={() => console.log("Login clicked")}>
+                <Text style={styles.dropdownButtonText}>Login</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.dropdownButton, styles.signupButton]}
+                onPress={() => router.push('/signup')} // Navigate to the explore page
+              >
+                <Text style={styles.signupButtonText}>Sign Up</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+      </View>
+      <View style={styles.width}>
 
 
 
 
         <View style={styles.posting}>
           <Text style={styles.detailsText}>Details</Text>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <TouchableOpacity style={styles.button} onPress={() => { }}>
             <Text style={styles.buttonText}>Post</Text>
           </TouchableOpacity>
         </View>
@@ -79,11 +79,11 @@ export default function TabTwoScreen() {
           placeholder="Intramuros, Manila City"
           placeholderTextColor="#9CA3AF"
         />
-      
+
         <Text style={styles.text}>Best Way</Text>
 
         <View style={styles.card}>
-          <View style={styles.top}> 
+          <View style={styles.top}>
             <View style={styles.avatar}>
               <Text style={styles.avatarText}>NN</Text>
             </View>
@@ -102,25 +102,31 @@ export default function TabTwoScreen() {
           </Text>
 
           <View style={styles.iconStatus}>
-            <Octicons name="shield-check" size={18} color="blue"/>
-            <Text style={styles.status}>Status</Text> 
+            <Octicons name="shield-check" size={18} color="blue" />
+            <Text style={styles.status}>Status</Text>
             <View style={styles.badge}>
               <Entypo name="check" size={14} color="#03C04A" />
               <Text style={styles.cert}>Certified AppName</Text>
             </View>
           </View>
         </View>
-  
 
-  
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 30 }}>
+
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginVertical: 20,
+         }}>
           <Text style={{ color: '#4B5563', fontWeight: 'bold', fontSize: 16, flexShrink: 1 }}>
             Route Post Suggestion
           </Text>
-          
-          <View style={{ }}>
+
+          <View style={{
+            position: 'absolute',
+            right: 0,
+            top: 0,
+          }}>
             <TouchableOpacity
               onPress={() => setShowDropdown(!showDropdown)}
+
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -130,8 +136,7 @@ export default function TabTwoScreen() {
                 borderWidth: 1,
                 borderColor: '#ccc',
                 width: 150,
-                elevation: 5, // For Android shadow effect
-                zIndex: 1000000000, // Higher value to ensure it's on top
+                
               }}
             >
               <Text>{selectedOption}</Text>
@@ -140,7 +145,7 @@ export default function TabTwoScreen() {
 
             {showDropdown && (
               <View style={{
-                position: 'sticky',
+                
                 top: '10%',
                 width: '100%',
                 backgroundColor: 'white',
@@ -148,10 +153,9 @@ export default function TabTwoScreen() {
                 borderWidth: 1,
                 borderColor: '#ccc',
                 marginTop: 5,
-                zIndex: 1000000000000,
-                
+              
               }}>
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => {
                     setSelectedOption('Time');
                     setShowDropdown(false);
@@ -160,7 +164,7 @@ export default function TabTwoScreen() {
                 >
                   <Text>Time</Text>
                 </TouchableOpacity>
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => {
                     setSelectedOption('Fare Cost');
                     setShowDropdown(false);
@@ -169,7 +173,7 @@ export default function TabTwoScreen() {
                 >
                   <Text>Fare Cost</Text>
                 </TouchableOpacity>
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => {
                     setSelectedOption('Destination');
                     setShowDropdown(false);
@@ -178,7 +182,7 @@ export default function TabTwoScreen() {
                 >
                   <Text>Destination</Text>
                 </TouchableOpacity>
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => {
                     setSelectedOption('Popularity');
                     setShowDropdown(false);
@@ -189,34 +193,21 @@ export default function TabTwoScreen() {
                 </TouchableOpacity>
               </View>
             )}
-            
-          </View> 
-          
+
           </View>
-          
-          
-        
 
-        
-
-
-
-
-
-
-
-
+        </View>
 
         <View style={styles.usercard}>
-          <View style={styles.id}> 
+          <View style={styles.id}>
             <View style={styles.profile}>
               <Text style={styles.nn}>NN</Text>
             </View>
             <View style={styles.user}>
-              <Text style={styles.name}>User</Text> 
-              <Text style={styles.username}>@username</Text> 
+              <Text style={styles.name}>User</Text>
+              <Text style={styles.username}>@username</Text>
             </View>
-            <Text style={styles.timedate}>12 Hours ago</Text> 
+            <Text style={styles.timedate}>12 Hours ago</Text>
           </View>
           <Text style={styles.userdestination}>Destination: Intramuros, Manila</Text>
           <Text style={styles.touristexp}>Tourist Experience:</Text>
@@ -231,8 +222,8 @@ export default function TabTwoScreen() {
           </Text>
 
           <View style={styles.iconStatus}>
-            <Octicons name="shield-check" size={18} color="blue"/>
-            <Text style={styles.status}>Status</Text> 
+            <Octicons name="shield-check" size={18} color="blue" />
+            <Text style={styles.status}>Status</Text>
             <View style={styles.badge}>
               <Entypo name="check" size={14} color="#03C04A" />
               <Text style={styles.cert}>Certified AppName</Text>
@@ -242,7 +233,7 @@ export default function TabTwoScreen() {
               <AntDesign name="arrowup" size={15} color="#03C04A" />
               <Text style={[styles.num, { color: '#22c55e' }]}>11</Text>
             </View>
-    
+
             <View style={styles.arrowdown}>
               <AntDesign name="arrowdown" size={15} color="red" />
               <Text style={[styles.num, { color: 'red' }]}>4</Text>
@@ -255,116 +246,124 @@ export default function TabTwoScreen() {
       <TouchableOpacity style={styles.floatingButton}>
         <Text style={styles.floatingButtonText}>+</Text>
       </TouchableOpacity>
-      
+
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1,backgroundColor: '#f9f9f9',},
+  container: { flex: 1, backgroundColor: '#f9f9f9', },
 
-  width: {flexDirection: 'column',padding: 16,backgroundColor: '#F9FAFB',width: '90%',maxWidth: 
-    640,alignSelf: 'center',
+  width: {
+    flexDirection: 'column', padding: 16, backgroundColor: '#F9FAFB', width: '90%', maxWidth:
+      640, alignSelf: 'center',
     borderRadius: 8,
   },
 
-  header: {flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 50, 
-    width: '90%',alignSelf: 'center', marginBottom: 20,
-   },
-
-  logo: {width: 40,
-    height: 40,
-    resizeMode: 'contain',},
-
-    profileIconContainer: {
-      padding: 8,
-    },
-    profileCircle: {
-      width: 40,
-      height: 40,
-      borderRadius: 20,
-      backgroundColor: '#E0E7FF',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    secondcircle: {
-      width: 30,
-      height: 30,
-      borderRadius: 20,
-      backgroundColor: '#4F46E5',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    profileInitial: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: 'white',
-    },
-    dropdown: {
-      position: 'absolute',
-      top: 50,
-      right: 0,
-      backgroundColor: '#FFFFFF',
-      borderRadius: 12,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 4,
-      elevation: 5,
-      padding: 16,
-      zIndex: 10,
-      width: 200,
-      alignItems: 'center',
-      borderWidth: 1,
-      borderColor: '#E5E7EB',
-    },
-    dropdownTitle: {
-      fontSize: 14,
-      color: '#6B7280',
-      textAlign: 'center',
-      marginBottom: 10,
-    },
-    boldText: {
-      fontWeight: '700',
-      color: '#374151',
-    },
-    dropdownButton: {
-      width: '100%',
-      backgroundColor: '#E5E7EB',
-      paddingVertical: 10,
-      borderRadius: 8,
-      alignItems: 'center',
-      marginBottom: 8,
-    },
-    dropdownButtonText: {
-      fontSize: 14,
-      color: '#4F46E5',
-      fontWeight: '600',
-    },
-    signupButton: {
-      backgroundColor: '#4F46E5',
-    },
-    signupButtonText: {
-      color: '#FFFFFF',
-    },
-
-  posting: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8,
-    backgroundColor: '#F9FAFB', width: '100%', maxWidth: 640, alignSelf: 'center', borderRadius: 8, },
-  detailsText: { color: '#4B5563', fontWeight: 'bold', fontSize: 16,},
-  
-  button: {backgroundColor: '#6366F1',paddingHorizontal: 14, paddingVertical: 6, borderRadius: 10,justifyContent: 'center',
-    alignItems: 'center', },
-  
-    buttonText: {
-    color: 'white', fontSize: 12},
-  
-    label: {marginTop: 8,color: '#6B7280',fontSize: 14,
+  header: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 50,
+    width: '90%', alignSelf: 'center', marginBottom: 20,
   },
 
-  input: {backgroundColor: '#E0E7FF',borderColor: '#C7D2FE',color: '#374151',borderRadius: 8,borderWidth: 1,
-    paddingHorizontal: 8,paddingVertical: 12,marginTop: 4,fontSize: 14,width: '100%',marginBottom: 16,},
-  
-    text: {color: '#4B5563',
+  logo: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
+  },
+
+  profileIconContainer: {
+    padding: 8,
+  },
+  profileCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#E0E7FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  secondcircle: {
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    backgroundColor: '#4F46E5',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  profileInitial: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  dropdown: {
+    position: 'absolute',
+    top: 50,
+    right: 0,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    elevation: 5,
+    padding: 16,
+    width: 200,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  dropdownTitle: {
+    fontSize: 14,
+    color: '#6B7280',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  boldText: {
+    fontWeight: '700',
+    color: '#374151',
+  },
+  dropdownButton: {
+    width: '100%',
+    backgroundColor: '#E5E7EB',
+    paddingVertical: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  dropdownButtonText: {
+    fontSize: 14,
+    color: '#4F46E5',
+    fontWeight: '600',
+  },
+  signupButton: {
+    backgroundColor: '#4F46E5',
+  },
+  signupButtonText: {
+    color: '#FFFFFF',
+  },
+
+  posting: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8,
+    backgroundColor: '#F9FAFB', width: '100%', maxWidth: 640, alignSelf: 'center', borderRadius: 8,
+  },
+  detailsText: { color: '#4B5563', fontWeight: 'bold', fontSize: 16, },
+
+  button: {
+    backgroundColor: '#6366F1', paddingHorizontal: 14, paddingVertical: 6, borderRadius: 10, justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  buttonText: {
+    color: 'white', fontSize: 12
+  },
+
+  label: {
+    marginTop: 8, color: '#6B7280', fontSize: 14,
+  },
+
+  input: {
+    backgroundColor: '#E0E7FF', borderColor: '#C7D2FE', color: '#374151', borderRadius: 8, borderWidth: 1,
+    paddingHorizontal: 8, paddingVertical: 12, marginTop: 4, fontSize: 14, width: '100%', marginBottom: 16,
+  },
+
+  text: {
+    color: '#4B5563',
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -453,7 +452,7 @@ const styles = StyleSheet.create({
   cert: {
     color: '#22c55e',
     fontWeight: '500',
-    fontSize: 12,
+    fontSize: 12, 
   },
 
   usercard: {
@@ -463,7 +462,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 16,
     marginVertical: 2,
-    
+    zIndex: -1
   },
 
   profile: {
@@ -539,7 +538,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 10,
-  }, 
+  },
   num: {
     marginLeft: 6,
     fontSize: 12,
@@ -556,10 +555,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#6366f1',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 4,
     elevation: 4,
   },
   floatingButtonText: {
