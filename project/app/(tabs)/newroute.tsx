@@ -8,14 +8,14 @@ const TravelDirections = () => {
   return (
     <View style={styles.whole} >
    
-      <View style={styles.directionContainer}>
+      <View style={styles.routeline}>
       <View style={{ flexDirection: 'row', gap: 5}}>
 
-      <Text style={[styles.timeText, { color: 'green' }]}>Get On</Text>
-      <Text style={styles.startend}>Ride a jeepney from Glori Bayan, Novaliches, going towards Monumento or EDSA.</Text>
+      <Text style={[styles.getOnOff, { color: 'green' }]}>Get On</Text>
+      <Text style={styles.startendroute}>Ride a jeepney from Glori Bayan, Novaliches, going towards Monumento or EDSA.</Text>
       
       </View>
-        <View style={styles.starttimeContainer}>
+        <View style={styles.greencircle}>
         </View>
        
         <View style={styles.routes}>
@@ -25,25 +25,25 @@ const TravelDirections = () => {
         <Text style={styles.directionText}>Get down at the intersection of Quezon Avenue and España Boulevard.</Text>
         </View>
         </View>
-
-     
-        
-
         
         <View style={{ flexDirection: 'row', gap: 6}}>
            
            
-             <Text style={[styles.timeText, { color: 'blue' }]}>    Get Off</Text>
-             <Text style={styles.startend}>Ride a jeep to Manila, then get off at Lerma Street.</Text>
+             <Text style={[styles.getOnOff, { color: 'blue' }]}>    Get Off</Text>
+             <Text style={styles.startendroute}>Ride a jeep to Manila, then get off at Lerma Street.</Text>
             
-             <View style={styles.timeContainer }> </View>  
+             <View style={styles.bluecircle}> </View>  
         </View>
        
       
-       <View style={{ flexDirection: 'row', marginLeft:46 }}>
+       <View style={{ flexDirection: 'row', marginLeft:40, gap:15, marginTop: 4 }}>
                <FontAwesome5 name="walking" size={20} color="#6B7280" />
                 <Text style={styles.walkroutes}>Walk to Intramuros via Padre Burgos or General Luna Street.</Text>
               </View>
+
+
+
+              
   
     </View>
 
@@ -53,13 +53,12 @@ const TravelDirections = () => {
 const styles = StyleSheet.create({
   whole: { flexDirection: 'column', padding: 30, backgroundColor: '#F9FAFB', width: '100%' },
  
-  directionContainer: { paddingLeft: 14,
-    
+  routeline: { paddingLeft: 14,
     borderLeftWidth: 3  ,
     borderLeftColor: 'green',
     position: 'relative',
   },
-  starttimeContainer: {
+  greencircle: {
     position: 'absolute',
     left: -9 ,
     paddingHorizontal: 8,
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     marginRight: 16,
   },
-  timeContainer: {
+  bluecircle: {
     position: 'absolute',
     left: -7 ,
     paddingHorizontal: 8,
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   routes: {flexDirection: 'column',},
-  timeText: {
+  getOnOff: {
     fontSize: 12, fontWeight: 'bold'  
   
   },
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginLeft: 50,
   },
-  startend:{
+  startendroute:{
     fontSize: 10,
     color: '#6B7280',
     marginBottom: 8,
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
   },
     
   walkroutes: {
-    color: '#6366F1',
+    fontSize: 10, color: '#6B7280', marginVertical: 6,
   },
 });
 
